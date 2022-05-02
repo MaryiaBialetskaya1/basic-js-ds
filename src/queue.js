@@ -16,13 +16,21 @@ const { ListNode } = require("../extensions/list-node.js");
 class Queue {
   constructor() {
     this.elements = {}; //object to store elements
-    this.head = 0; //track head
-    this.tail = 0; //track tail
+    this.head = null; //track head
+    this.tail = null; //track tail
   }
   getUnderlyingList() {
     //throw new NotImplementedError("Not implemented");
     // remove line with error and write your code here
-    return this.tail - this.head;
+    const arr = [];
+    let current = this.head;
+
+    while (current) {
+      arr.push(current);
+      current = current.next;
+    }
+
+    return { ...arr[0] };
   }
 
   enqueue(value) {
