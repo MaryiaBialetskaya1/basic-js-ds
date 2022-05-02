@@ -48,8 +48,20 @@ class BinarySearchTree {
   }
 
   has(data) {
-    throw new NotImplementedError("Not implemented");
+    //throw new NotImplementedError("Not implemented");
     // remove line with error and write your code here
+    let current = this.top;
+    while (current) {
+      if (data === current.data) {
+        return true;
+      }
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
   }
 
   find(data) {
@@ -71,30 +83,9 @@ class BinarySearchTree {
     return found;
   }
 
-  remove(data, key) {
+  remove(data) {
     //throw new NotImplementedError("Not implemented");
     // remove line with error and write your code here
-    if (data === null) {
-      return null;
-    } else if (key < data.top) {
-      top.left = this.removeNode(data.left, key);
-      return data;
-    } else if (key > this.data.top) {
-      data.right = this.removeNode(data.right, key);
-      return data;
-    } else {
-      if (data.left === null && data.right === null) {
-        data = null;
-        return data;
-      }
-      if (data.left === null) {
-        data = data.right;
-        return data;
-      } else if (data.right === null) {
-        data = data.left;
-        return data;
-      }
-    }
   }
 
   min() {
