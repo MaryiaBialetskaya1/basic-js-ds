@@ -71,7 +71,9 @@ class BinarySearchTree {
     let current = this.top;
     let found = false;
     while (current && !found) {
-      if (data < current.data) {
+      if (current.data === data) {
+        return current;
+      } else if (data < current.data) {
         current = current.left;
       } else if (data > current.data) {
         current = current.right;
@@ -79,8 +81,8 @@ class BinarySearchTree {
         found = current;
       }
     }
-    if (!found) return undefined;
-    return found;
+    if (found) return undefined;
+    return null;
   }
 
   remove(data) {
